@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Generator</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        button {
+            background: #9b59b6;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-bottom: 20px;
+        }
+        button:hover {
+            background: #8e44ad;
+        }
+        #otpDisplay {
+            font-size: 36px;
+            font-weight: bold;
+            color: #27ae60;
+            letter-spacing: 5px;
+            min-height: 50px;
+        }
+        p {
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>OTP Generator</h1>
+        <button id="generateBtn">Generate OTP</button>
+        <div id="otpDisplay">Click the button to generate</div>
+        <p>A new 6-digit OTP will appear here.</p>
+    </div>
+
+    <script>
+        const generateBtn = document.getElementById('generateBtn');
+        const otpDisplay = document.getElementById('otpDisplay');
+
+        function generateOTP() {
+            let otp = '';
+            for (let i = 0; i < 6; i++) {
+                otp += Math.floor(Math.random() * 10);
+            }
+            return otp;
+        }
+
+        generateBtn.addEventListener('click', () => {
+            const otp = generateOTP();
+            otpDisplay.textContent = otp;
+        });
+    </script>
+</body>
+</html>
